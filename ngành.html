@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngành mong muốn</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+    background:url("ảnh 2.jpg") no-repeat center/cover fixed;
+    min-height:100vh;
+    opacity:0;
+    transition:0.5s;
+}
+body.show{opacity:1;}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:15px;
+    z-index:5;
+}
+.navbar a{
+    margin:5px;
+    padding:8px 15px;
+    background:white;
+    border-radius:20px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+/* ===== HAMBURGER ===== */
+.hamburger{
+    position:fixed;
+    top:15px;
+    left:15px;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+    z-index:6;
+}
+
+/* ===== AVATAR ===== */
+.avatar{
+    position:fixed;
+    top:15px;
+    right:15px;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:url("ảnh 1.jpg") no-repeat center/cover;
+    border:3px solid white;
+    box-shadow:0 0 15px rgba(255,255,255,0.5);
+    z-index:6;
+}
+
+/* ===== MENU ===== */
+.menu-box{
+    position:fixed;
+    top:100px;
+    left:-260px;
+    width:240px;
+    height:300px;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    border-radius:15px;
+    transition:0.4s;
+    z-index:10;
+    padding-top:40px;
+}
+.drag-bar{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:35px;
+    background:rgba(255,255,255,0.1);
+    cursor:grab;
+}
+.menu-box a{
+    display:block;
+    padding:12px;
+    color:white;
+    text-decoration:none;
+}
+
+/* ===== CONTENT ===== */
+.container{
+    max-width:1000px;
+    margin:120px auto;
+    padding:20px;
+}
+
+.content-box{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 0 25px rgba(0,0,0,0.3);
+    margin-bottom:20px;
+}
+
+.content-box img{
+    width:100%;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+/* ===== CARDS ===== */
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.card{
+    flex:1;
+    min-width:250px;
+    background:#f5f5f5;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+.card-content{padding:15px;}
+.card:hover{transform:scale(1.05);}
+
+/* ===== BẢNG MỤC TIÊU ===== */
+.table-box{
+    margin-top:15px;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+}
+
+th{
+    background:#0077ff;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+/* highlight hàng */
+tr:hover{
+    background:#eaf3ff;
+    transform:scale(1.01);
+    transition:0.2s;
+}
+
+/* highlight riêng */
+.highlight-row{
+    background:#dbeaff;
+    font-weight:bold;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    text-align:center;
+    color:rgba(255,255,255,0.6);
+    padding:20px;
+    font-size:14px;
+    text-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .cards{flex-direction:column;}
+    .avatar{
+        width:60px;
+        height:60px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu-box" id="menu">
+    <div class="drag-bar" id="dragBar"></div>
+    <a href="index.html">🏠 Trang chủ</a>
+    <a href="nganh.html">Ngành</a>
+    <a href="cohoi.html">Cơ hội</a>
+    <a href="thachthuc.html">Thách thức</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<div class="avatar"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">Trang chủ</a>
+    <a href="nganh.html">Ngành</a>
+    <a href="cohoi.html">Cơ hội</a>
+    <a href="thachthuc.html">Thách thức</a>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+<div class="content-box">
+<h2>💻 Ngành Công nghệ Thông tin (IT)</h2>
+<p>Ngành sử dụng máy tính để xử lý và bảo mật thông tin.</p>
+<img src="ảnh 3.jpg">
+</div>
+
+<div class="content-box">
+<h3>📚 Chuyên ngành</h3>
+
+<div class="cards">
+
+<div class="card">
+<img src="ảnh 5.jpg">
+<div class="card-content">
+<h4>Lập trình</h4>
+<p>Website, app, game</p>
+</div>
+</div>
+
+<div class="card">
+<img src="ảnh 6.jpg">
+<div class="card-content">
+<h4>Data</h4>
+<p>AI, dữ liệu</p>
+</div>
+</div>
+
+<div class="card">
+<img src="ảnh 7.jpg">
+<div class="card-content">
+<h4>Bảo mật</h4>
+<p>An ninh mạng</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="content-box">
+<h3>🎯 Mục tiêu của em</h3>
+
+<div class="table-box">
+<table>
+<tr>
+<th>Trường</th>
+<th>Ngành</th>
+</tr>
+
+<tr class="highlight-row">
+<td>Đại học Bách Khoa Hà Nội</td>
+<td>IT1, IT2</td>
+</tr>
+
+<tr>
+<td>UET - ĐHQG Hà Nội</td>
+<td>Kỹ thuật máy tính</td>
+</tr>
+
+<tr class="highlight-row">
+<td>UET - ĐHQG Hà Nội</td>
+<td>Công nghệ thông tin</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+Thiết kế bởi Nguyễn Hoàng Dương - Bài thi cuối học kì II
+</footer>
+
+<script>
+document.body.classList.add("show");
+
+document.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",function(e){
+        e.preventDefault();
+        document.body.classList.remove("show");
+        setTimeout(()=>{window.location=this.href;},300);
+    });
+});
+
+function toggleMenu(){
+    let menu=document.getElementById("menu");
+    menu.style.left=(menu.style.left==="0px")?"-260px":"0px";
+}
+
+let menu=document.getElementById("menu");
+let dragBar=document.getElementById("dragBar");
+
+let isDragging=false, offsetY;
+
+dragBar.onmousedown=function(e){
+    isDragging=true;
+    offsetY=e.clientY-menu.offsetTop;
+};
+
+document.onmousemove=function(e){
+    if(isDragging){
+        menu.style.top=(e.clientY-offsetY)+"px";
+    }
+};
+
+document.onmouseup=function(){
+    isDragging=false;
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cơ hội ngành IT</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+    background:url("ảnh 2.jpg") no-repeat center/cover fixed;
+    min-height:100vh;
+    opacity:0;
+    transition:0.5s;
+}
+body.show{
+    opacity:1;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:15px;
+    z-index:5;
+}
+
+.navbar a{
+    margin:5px;
+    padding:8px 15px;
+    background:white;
+    border-radius:20px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+/* ===== HAMBURGER ===== */
+.hamburger{
+    position:fixed;
+    top:15px;
+    left:15px;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+    z-index:6;
+}
+
+/* ===== AVATAR ===== */
+.avatar{
+    position:fixed;
+    top:15px;
+    right:15px;
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:url("ảnh 1.jpg") no-repeat center/cover;
+    border:3px solid white;
+    box-shadow:0 0 15px rgba(255,255,255,0.6);
+    z-index:6;
+}
+
+/* ===== MENU ===== */
+.menu-box{
+    position:fixed;
+    top:100px;
+    left:-260px;
+    width:240px;
+    height:300px;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    border-radius:15px;
+    transition:0.4s;
+    z-index:10;
+    padding-top:40px;
+}
+
+.drag-bar{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:35px;
+    background:rgba(255,255,255,0.1);
+    cursor:grab;
+}
+
+.menu-box a{
+    display:block;
+    padding:12px;
+    color:white;
+    text-decoration:none;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    max-width:900px;
+    margin:120px auto;
+    padding:20px;
+}
+
+/* ===== BANNER ===== */
+.banner{
+    width:100%;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.banner img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+/* ===== BOX ===== */
+.box{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    transition:0.3s;
+    position:relative;
+}
+
+/* viền gradient */
+.box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    padding:2px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+}
+
+/* hover */
+.box:hover{
+    transform:translateY(-8px) scale(1.01);
+}
+
+.box h3{
+    margin-bottom:10px;
+    color:#0077ff;
+}
+
+.line{
+    width:50px;
+    height:4px;
+    background:#0077ff;
+    margin:10px 0;
+    border-radius:5px;
+}
+
+.highlight{
+    background:#eaf3ff;
+    padding:10px;
+    border-left:5px solid #0077ff;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    text-align:center;
+    color:rgba(255,255,255,0.6);
+    padding:20px;
+    font-size:14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .avatar{
+        width:55px;
+        height:55px;
+    }
+
+    .container{
+        margin:100px 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu-box" id="menu">
+    <div class="drag-bar" id="dragBar"></div>
+    <a href="index.html">🏠 Trang chủ</a>
+    <a href="ngành.html">Ngành</a>
+    <a href="cohoi.html">Cơ hội</a>
+    <a href="thachthuc.html">Thách thức</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<div class="avatar"></div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">Trang chủ</a>
+    <a href="ngành.html">Ngành</a>
+    <a href="cohoi.html">Cơ hội</a>
+    <a href="thachthuc.html">Thách thức</a>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+<div class="banner">
+<img src="ảnh 8.jpg">
+</div>
+
+<div class="box">
+<h3>🚀 1. Nhu cầu nhân lực cực lớn</h3>
+<div class="line"></div>
+<p>Các công ty công nghệ lớn luôn cần nhiều lập trình viên. Việt Nam thiếu hụt hàng chục nghìn nhân lực IT mỗi năm.</p>
+<div class="highlight">👉 Học IT gần như không lo thất nghiệp nếu có kỹ năng.</div>
+</div>
+
+<div class="box">
+<h3>💰 2. Thu nhập cao</h3>
+<div class="line"></div>
+<p>8–15 triệu → 20–50 triệu → 100 triệu+ mỗi tháng.</p>
+<div class="highlight">👉 Ngành có tốc độ tăng lương nhanh.</div>
+</div>
+
+<div class="box">
+<h3>🌍 3. Làm việc toàn cầu</h3>
+<div class="line"></div>
+<p>Có thể làm remote, đi nước ngoài hoặc làm tại nhà.</p>
+<div class="highlight">👉 Không bị giới hạn địa lý.</div>
+</div>
+
+<div class="box">
+<h3>🤖 4. Công nghệ phát triển</h3>
+<div class="line"></div>
+<p>AI, Data, Cybersecurity, Blockchain phát triển mạnh.</p>
+<div class="highlight">👉 Xu hướng tương lai.</div>
+</div>
+
+<div class="box">
+<h3>📈 5. Thăng tiến</h3>
+<div class="line"></div>
+<p>Có thể lên Leader, Manager hoặc startup riêng.</p>
+<div class="highlight">👉 Làm chủ sự nghiệp.</div>
+</div>
+
+</div>
+
+<footer class="footer">
+Thiết kế bởi Nguyễn Hoàng Dương - Bài thi cuối học kì II
+</footer>
+
+<script>
+// fade
+document.body.classList.add("show");
+
+document.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",function(e){
+        e.preventDefault();
+        document.body.classList.remove("show");
+        setTimeout(()=>{window.location=this.href;},300);
+    });
+});
+
+// menu
+function toggleMenu(){
+    let menu=document.getElementById("menu");
+    menu.style.left=(menu.style.left==="0px")?"-260px":"0px";
+}
+
+// drag
+let menu=document.getElementById("menu");
+let dragBar=document.getElementById("dragBar");
+
+let isDragging=false, offsetY;
+
+dragBar.onmousedown=function(e){
+    isDragging=true;
+    offsetY=e.clientY-menu.offsetTop;
+};
+
+document.onmousemove=function(e){
+    if(isDragging){
+        menu.style.top=(e.clientY-offsetY)+"px";
+    }
+};
+
+document.onmouseup=function(){
+    isDragging=false;
+};
+</script>
+
+</body>
+</html>
